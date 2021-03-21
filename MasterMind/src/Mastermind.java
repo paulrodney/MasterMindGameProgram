@@ -2,7 +2,7 @@ import java.util.*;
 
 class Mastermind {
 
-	//define the properties of the class
+	//define the properties of the class.
 	int[] currentGuess = new int[4];
 	int[] ans = new int[4];
 	int numberOfValidSolutions = 10000;
