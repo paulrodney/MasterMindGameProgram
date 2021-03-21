@@ -3,8 +3,6 @@ import java.util.*;
 public class mm_Tester {
 	public static void main(String[] args) {
 		
-		//new comment to test commitxxx
-		
 		Mastermind mm = new Mastermind();
 		
 		int[] g = new int[4];
@@ -12,7 +10,7 @@ public class mm_Tester {
 		int[] s = new int[2];
 		
 		a = mm.toArray(6013);
-		g = mm.toArray(0611);
+		g = mm.toArray(611);
 		
 		System.out.println("a = " + Arrays.toString(a));
 		System.out.println("g = " + Arrays.toString(g));
@@ -20,6 +18,5 @@ public class mm_Tester {
 		s = mm.computeScore(g, a);
 		
 		System.out.println(Arrays.toString(s));
-	}
-
-}
+	}//main
+}//mm_Tester

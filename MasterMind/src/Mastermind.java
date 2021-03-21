@@ -87,6 +87,8 @@ class Mastermind {
 	}
 	
 	public int[] computeScore(int[] g, int[] a){
+		
+		//set true to turn on printing of the debug statements
 		boolean debug = false;
 
 		//g[] is current guess
@@ -98,28 +100,38 @@ class Mastermind {
 
 		for(int i = 0; i <= 3; i++) { 
 			if (a[i] == g[i]) {
+				//found a correct digit in the correct position
 				used[i] = true; 
-				count[0]++;// the zero index is the numbers
-			
+				count[0]++;// the zero index is numbers in the right position
 			}//if a[i] == g[i]  
 		}//for a
+		
+		if (debug) System.out.println("\nCompleted first loop, score is " + count[0]+"." + count[1] + "\n");
 		
 		for(int i = 0; i <= 3; i++) {
 			//i iterates over g[]
 			if(a[i] != g[i]) {
 				for (int j = 0; j <= 3; j++) {
 					//j iterates over a[]
+					if (debug) System.out.print("g" + i + " -> a" + j + " ; comparing the " + g[i] + " in 'g' to " + a[j] + " in 'a'");
 					if(used[j] == true) {
-						
+						if (debug) System.out.println(" ; score " + count[0]+"." + count[1] + " ; digit used already so skip and continue");
 						continue; 	//takes us to the the next j values
 					}//if used[j] true
 					if(g[i] == a[j]) {
+						//found a correct digit in the wrong position
 						used[j] = true;
+
+						if (debug) System.out.println(" ; score " + count[0]+"." + count[1] + " ; digits match, set used True and break to next element in g[]");
 						break;  //breaks j loop, goes to next i
 					} 
+					if (debug) System.out.print(" ; score " + count[0]+"." + count[1] + " ; digits do not match, check next digit in a[]\n");
 				}//for j
 			}//if
 		}//for   i
+
+		if (debug) System.out.print("\n");
+
 		return count;
 	} // computeScore
 
@@ -172,7 +184,12 @@ class Mastermind {
 	}//rowOfAnswer
 	
 	public int[] toArray(int number) {
-		int[] j = new int[4];
+		
+		//explicitly initialize the j[] array to zeros
+		//the previous version of the code did not do this
+		//and resulted in incorrect values of the
+		//parameter 'number' was less than 1000 (or less than 100 or less than 10)
+		int[] j = {0, 0, 0, 0};
 
 		for (int i = 0; i<=3; i++) {
 			j[i] = (int) ( number / Math.pow(10, 3-i) ) % 10;
