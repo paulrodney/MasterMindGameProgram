@@ -64,7 +64,8 @@ class Mastermind {
 	
 	public String getInstructions(){
 		String instructions;
-		instructions = "When scoring a whole number means there is the right digiht in the right place and a decimal number means there is a right number in the wrong place.";
+		instructions = "When scoring a whole number means there is the right digiht in the right place and a decimal number means there is a right number in the wrong place.\n"
+				+ "Example if answer = 6013 and guess = 6194 your score will be 1.1";
 		return instructions;
 	}
 	
