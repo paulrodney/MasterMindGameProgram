@@ -121,10 +121,10 @@ class Mastermind {
 					if(g[i] == a[j]) {
 						//found a correct digit in the wrong position
 						used[j] = true;
-
+						count[1]++;
 						if (debug) System.out.println(" ; score " + count[0]+"." + count[1] + " ; digits match, set used True and break to next element in g[]");
 						break;  //breaks j loop, goes to next i
-					} 
+					}//if 
 					if (debug) System.out.print(" ; score " + count[0]+"." + count[1] + " ; digits do not match, check next digit in a[]\n");
 				}//for j
 			}//if
